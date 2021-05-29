@@ -8,6 +8,7 @@ const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+
 const server = new ApolloServer({ 
   typeDefs, 
   resolvers, 
@@ -16,7 +17,7 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app });
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Serve up static assets
